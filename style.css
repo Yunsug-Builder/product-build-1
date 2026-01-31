@@ -218,3 +218,8 @@ body.dark-mode button[type="submit"]:hover {
 button[type="submit"]:active {
     transform: scale(0.99);
 }
+
+/* Comments Section */
+#comments {
+    margin-top: 3rem;
+}
