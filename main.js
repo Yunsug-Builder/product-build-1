@@ -68,3 +68,27 @@ class WeatherForecast extends HTMLElement {
 }
 
 customElements.define('weather-forecast', WeatherForecast);
+
+// Function to generate a single set of unique lottery numbers
+function generateLottoNumbers() {
+  const numbers = new Set();
+  while (numbers.size < 6) {
+    numbers.add(Math.floor(Math.random() * 45) + 1);
+  }
+  return Array.from(numbers).sort((a, b) => a - b);
+}
+
+// Generate 3 sets of lottery numbers
+function generateMultipleLottoTickets(numTickets) {
+  const lottoTickets = [];
+  for (let i = 0; i < numTickets; i++) {
+    lottoTickets.push(generateLottoNumbers());
+  }
+  return lottoTickets;
+}
+
+const myLottoTickets = generateMultipleLottoTickets(3);
+console.log("Generated Lottery Numbers:");
+myLottoTickets.forEach((ticket, index) => {
+  console.log(`Ticket ${index + 1}: ${ticket.join(', ')}`);
+});
