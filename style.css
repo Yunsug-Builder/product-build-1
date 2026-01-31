@@ -1,1 +1,36 @@
-/* Add styles here */
+
+body {
+    font-family: sans-serif;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    margin: 0;
+}
+
+weather-forecast {
+    display: block;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    text-align: center;
+    width: 300px;
+}
+
+.city {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.description {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
