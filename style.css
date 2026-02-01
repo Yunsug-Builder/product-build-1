@@ -8,7 +8,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html.light-mode {
+html.light-mode body {
     background-color: #f4f7f9; /* Light mode background */
     color: #333;
 }
