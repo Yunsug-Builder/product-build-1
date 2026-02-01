@@ -17,45 +17,69 @@
         </label>
     </div>
 
+    <nav class="main-nav">
+        <a href="#about">About the Event</a>
+        <a href="#benefits">Why Speak?</a>
+        <a href="#apply">Apply</a>
+    </nav>
+
     <div class="container">
         <header class="hero-section">
             <h1>Share Your Knowledge</h1>
-            <p>We invite you to become a speaker at our next event. Submit your proposal below.</p>
+            <p>We invite you to become a speaker at our next event, a gathering of the brightest minds in technology and innovation.</p>
         </header>
 
-        <main id="speaker-form-container">
-            <h2>Speaker Application</h2>
-            <form action="https://formspree.io/f/xzdglgkl" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+        <section id="about" class="content-section">
+            <h2>About the Event</h2>
+            <p>Our event is a premier conference dedicated to exploring the future of technology. We bring together developers, designers, and visionaries to share ideas, inspire one another, and build the future. This year's theme is "Innovate & Elevate," focusing on groundbreaking solutions and forward-thinking strategies. We provide a platform for experts like you to showcase your work, share your insights, and connect with a passionate community.</p>
+        </section>
 
-                <div class="form-group">
-                    <label for="talk-title">Topic / Title of Presentation:</label>
-                    <input type="text" id="talk-title" name="talk-title" required>
-                </div>
+        <section id="benefits" class="content-section">
+            <h2>Why Speak?</h2>
+            <ul>
+                <li><strong>Showcase Your Expertise:</strong> Present your work to an engaged and influential audience.</li>
+                <li><strong>Expand Your Network:</strong> Connect with industry leaders, potential collaborators, and future employers.</li>
+                <li><strong>Receive a Complimentary Pass:</strong> All selected speakers will receive a full-access pass to the entire event.</li>
+                <li><strong>Professional Development:</strong> Enhance your public speaking skills and add a valuable experience to your professional profile.</li>
+            </ul>
+        </section>
 
-                <div class="form-group">
-                    <label for="talk-summary">Brief Summary of Your Talk:</label>
-                    <textarea id="talk-summary" name="talk-summary" rows="5" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="speaker-bio">Your Bio:</label>
-                    <textarea id="speaker-bio" name="speaker-bio" rows="4" required></textarea>
-                </div>
+        <main id="apply">
+            <div id="speaker-form-container">
+                <h2>Speaker Application</h2>
+                <form action="https://formspree.io/f/xzdglgkl" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                <button type="submit">Submit Proposal</button>
-            </form>
+                    <div class="form-group">
+                        <label for="talk-title">Topic / Title of Presentation:</label>
+                        <input type="text" id="talk-title" name="talk-title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="talk-summary">Brief Summary of Your Talk:</label>
+                        <textarea id="talk-summary" name="talk-summary" rows="5" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="speaker-bio">Your Bio:</label>
+                        <textarea id="speaker-bio" name="speaker-bio" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit">Submit Proposal</button>
+                </form>
+            </div>
         </main>
 
-        <section id="comments">
+        <section id="comments" class="content-section">
+            <h2>Join the Discussion</h2>
             <div id="disqus_thread"></div>
             <script>
                 /**
@@ -77,6 +101,14 @@
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
     </div>
+
+    <footer class="main-footer">
+        <div id="privacy">
+            <h3>Privacy Policy</h3>
+            <p>We are committed to protecting your privacy. The information you provide in the speaker application form will be used solely for the purpose of evaluating your proposal for our event. Your personal data, including your name and email address, will not be shared with third parties without your consent. By submitting the form, you agree to these terms.</p>
+        </div>
+        <p>&copy; 2026 Tech Innovators Conference. All Rights Reserved.</p>
+    </footer>
 
     <script src="main.js"></script>
 </body>
