@@ -4,7 +4,6 @@ body {
     background-color: #1a1a1a; /* Dark background as default */
     color: #e0e0e0;
     margin: 0;
-    padding: 2rem;
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -18,6 +17,7 @@ body.light-mode {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
+    padding: 2rem;
 }
 
 /* Theme Switcher */
@@ -25,6 +25,7 @@ body.light-mode {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
+    z-index: 10;
 }
 
 .switch {
@@ -77,13 +78,14 @@ input:checked + .slider:before {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
+    padding: 1rem;
     border-bottom: 1px solid #333;
+    background-color: #1a1a1a;
 }
 
 body.light-mode .main-nav {
     border-bottom-color: #e0e0e0;
+    background-color: #f4f7f9;
 }
 
 .main-nav a {
@@ -105,34 +107,32 @@ body.light-mode .main-nav a:hover {
     color: #000;
 }
 
-
-/* Hero Section */
-.hero-section {
+/* Home Page Hero Section */
+.home-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-bottom: 3rem;
+    color: white;
+    height: 60vh;
+    min-height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-top: 2rem;
 }
 
-.hero-section h1 {
-    font-size: 2.5rem;
+.hero-content h1 {
+    font-size: 3rem;
     font-weight: 700;
-    color: #ecf0f1;
     margin-bottom: 0.5rem;
 }
 
-body.light-mode .hero-section h1 {
-    color: #2c3e50;
+.hero-content p {
+    font-size: 1.2rem;
 }
 
-.hero-section p {
-    font-size: 1.1rem;
-    color: #bdc3c7;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-body.light-mode .hero-section p {
-    color: #555;
-}
 
 /* Content Sections */
 .content-section {
@@ -140,6 +140,7 @@ body.light-mode .hero-section p {
     border: 1px solid #333;
     border-radius: 12px;
     padding: 2rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -149,7 +150,7 @@ body.light-mode .content-section {
 }
 
 .content-section h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #f0f0f0;
     margin-top: 0;
@@ -183,15 +184,12 @@ body.light-mode .content-section h2 {
 
 
 /* Form Styles */
-#apply {
-    scroll-margin-top: 2rem; /* Offset for nav bar */
-}
-
 #speaker-form-container {
     background-color: #242424; /* Darker container */
     border-radius: 12px;
     border: 1px solid #333;
     padding: 2.5rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
