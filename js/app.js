@@ -12,9 +12,20 @@ function initBoardPage() {
     const postsGrid = document.getElementById('posts-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
+    console.log('initBoardPage: 페이지 초기화 시작');
+    if (typeof posts !== 'undefined') {
+        console.log(`initBoardPage: 총 ${posts.length}개의 게시물 로드됨`);
+    } else {
+        console.error('initBoardPage: "posts" 변수가 정의되지 않았습니다. posts.js 파일이 제대로 로드되었는지 확인하세요.');
+        return;
+    }
+
     function renderPosts(filter = 'all') {
+        console.log(`renderPosts: '${filter}' 카테고리로 렌더링 시작`);
         postsGrid.innerHTML = '';
         const filteredPosts = filter === 'all' ? posts : posts.filter(p => p.category === filter);
+        
+        console.log(`renderPosts: ${filteredPosts.length}개의 게시물 필터링됨`);
 
         if (filteredPosts.length === 0) {
             postsGrid.innerHTML = '<p>이 카테고리에는 게시글이 없습니다.</p>';
@@ -48,6 +59,7 @@ function initBoardPage() {
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const category = button.dataset.category;
+            console.log(`클릭 이벤트: '${category}' 버튼 클릭됨`);
             
             // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
