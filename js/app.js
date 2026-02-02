@@ -17,7 +17,7 @@ function initBoardPage() {
         const filteredPosts = filter === 'all' ? posts : posts.filter(p => p.category === filter);
 
         if (filteredPosts.length === 0) {
-            postsGrid.innerHTML = '<p>No posts found in this category.</p>';
+            postsGrid.innerHTML = '<p>이 카테고리에는 게시글이 없습니다.</p>';
             return;
         }
 
@@ -71,7 +71,7 @@ function initViewPage() {
 
     if (post) {
         // Update meta tags for SEO
-        document.title = `${post.title} - Tech Trends & Insights`;
+        document.title = `${post.title} - 테크 트렌드 & 인사이트`;
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', post.summary);
@@ -81,7 +81,7 @@ function initViewPage() {
         postContentContainer.innerHTML = `
             <h1 class="post-full-title">${post.title}</h1>
             <div class="post-full-meta">
-                <span class="post-full-author">By ${post.author}</span>
+                <span class="post-full-author">작성자: ${post.author}</span>
                 <span class="post-full-date">${post.date}</span>
                 <span class="post-full-category">${post.category}</span>
             </div>
@@ -93,7 +93,7 @@ function initViewPage() {
             </div>
         `;
     } else {
-        postContentContainer.innerHTML = '<h1>Post not found</h1><p>The requested post could not be found. Please return to the <a href="board.html">board</a>.</p>';
-        document.title = 'Post Not Found - Tech Trends & Insights';
+        postContentContainer.innerHTML = '<h1>게시글을 찾을 수 없습니다</h1><p>요청하신 게시글을 찾을 수 없습니다. <a href="board.html">게시판</a>으로 돌아가세요.</p>';
+        document.title = '게시글 없음 - 테크 트렌드 & 인사이트';
     }
 }

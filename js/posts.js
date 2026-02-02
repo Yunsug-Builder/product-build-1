@@ -4,7 +4,7 @@ const posts = [
         "title": "The Quantum Leap in AI: Are We Ready?",
         "author": "Dr. Evelyn Reed",
         "date": "2026-01-15",
-        "category": "Technology",
+        "category": "기술",
         "summary": "Quantum computing is set to revolutionize AI, promising exponential speed-ups and unprecedented problem-solving capabilities. But are we prepared for the challenges?",
         "content": `
             <p>The intersection of quantum computing and artificial intelligence marks a pivotal moment in technological history. For decades, we've seen AI, particularly machine learning, operate within the bounds of classical computing. But what happens when we introduce the strange and powerful world of quantum mechanics into the equation? The promise is staggering: exponential speed-ups in computation, the ability to solve problems currently deemed impossible, and AI models of unprecedented complexity.</p>
@@ -18,7 +18,7 @@ const posts = [
         "title": "Web3 & The Decentralized Future: Beyond the Hype",
         "author": "Ben Carter",
         "date": "2026-01-20",
-        "category": "Technology",
+        "category": "기술",
         "summary": "Web3 proposes a new internet architecture where users, not corporations, control their own data. We dive into the core principles, technologies, and challenges of this paradigm shift.",
         "content": `
             <p>Web3, or the Decentralized Web, has been a buzzword for years, often entangled with the volatile world of cryptocurrencies. But to dismiss it as mere hype is to miss the fundamental shift it represents. At its core, Web3 is about ownership. It proposes a new internet architecture where users, not giant corporations, control their own data and digital identity.</p>
@@ -32,7 +32,7 @@ const posts = [
         "title": "Building a Trillion-Dollar Business: A Founder's Story",
         "author": "Julia Chen",
         "date": "2026-01-25",
-        "category": "Business",
+        "category": "비즈니스",
         "summary": "From a garage startup to a global powerhouse, the journey of 'Innovate Inc.' is a masterclass in strategy, resilience, and leadership. The founder shares key lessons learned along the way.",
         "content": `
             <p>Every startup dreams of becoming a unicorn, but very few have a roadmap to becoming a 'trillion-dollar' company. Julia Chen, founder of the global tech conglomerate 'Innovate Inc.', sits down with us to discuss the principles that guided her journey. It wasn't about a single brilliant idea, she insists, but a relentless focus on execution and a culture of constant adaptation.</p>
@@ -46,7 +46,7 @@ const posts = [
         "title": "The Psychology of Innovation: Unlocking Creative Potential",
         "author": "Dr. Anya Sharma",
         "date": "2026-02-02",
-        "category": "Insight",
+        "category": "인사이트",
         "summary": "What separates true innovators from the rest? We explore the cognitive and psychological traits that foster creativity, and how organizations can cultivate an environment for breakthrough ideas.",
         "content": `
             <p>Innovation is not a mystical gift bestowed upon a chosen few. It is a process, a mindset, and a skill that can be cultivated. In our research, we've identified several key psychological traits that are consistently present in highly innovative individuals. The first is a high tolerance for ambiguity. Innovators are comfortable with the unknown and don't need a clear roadmap to start exploring. They thrive in uncertainty, seeing it as an opportunity rather than a threat.</p>
@@ -60,7 +60,7 @@ const posts = [
         "title": "Sustainable Tech: Can We Code a Greener Future?",
         "author": "Leo Kim",
         "date": "2026-02-10",
-        "category": "Insight",
+        "category": "인사이트",
         "summary": "The tech industry has a massive and growing carbon footprint. 'Green Coding' is a movement to build more energy-efficient software and hardware. Can we code our way to a more sustainable planet?",
         "content": `
             <p>The technology sector is a paradox. It has given us the tools to monitor climate change with unprecedented accuracy and optimize energy consumption on a global scale. Yet, the industry itself has a massive and growing carbon footprint. Data centers consume vast amounts of electricity, the manufacturing of electronics requires rare-earth minerals, and the constant cycle of upgrades leads to a mountain of e-waste.</p>
