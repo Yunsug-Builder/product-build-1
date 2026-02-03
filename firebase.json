@@ -4,8 +4,19 @@
     "cleanUrls": true,
     "rewrites": [
       {
+        "source": "/articles",
+        "destination": "/articles.html"
+      },
+      {
         "source": "/articles/**",
         "destination": "/article.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/board",
+        "destination": "/articles",
+        "type": 301
       }
     ]
   }
