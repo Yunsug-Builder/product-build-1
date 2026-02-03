@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": ".",
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "/articles/**",
+        "destination": "/article.html"
+      }
+    ]
+  }
+}
