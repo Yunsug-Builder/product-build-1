@@ -17,6 +17,11 @@
         "source": "/board",
         "destination": "/articles",
         "type": 301
+      },
+      {
+        "source": "/board.html",
+        "destination": "/articles",
+        "type": 301
       }
     ]
   }
