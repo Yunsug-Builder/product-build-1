@@ -1,56 +1,78 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const articleContent = document.getElementById('article-content');
-    
-    // SEO 친화적인 URL에서 슬러그 추출
-    const pathParts = window.location.pathname.split('/');
-    const slug = pathParts[pathParts.length - 1];
+    const articleContentEl = document.getElementById('article-content');
+    const params = new URLSearchParams(window.location.search);
+    const articleId = parseInt(params.get('id'));
 
-    if (articleContent && slug) {
-        const article = articles.find(a => a.slug === slug);
+    // The 'articles' array is loaded from /js/article-data.js
+    const article = articles.find(a => a.id === articleId);
 
-        if (article) {
-            // SEO를 위한 메타 태그 업데이트
-            document.title = `${article.title} - Tech Innovators Conference`;
-            document.querySelector('meta[name="description"]').setAttribute("content", article.summary);
-            
-            const ogTitle = document.createElement('meta');
-            ogTitle.setAttribute('property', 'og:title');
-            ogTitle.setAttribute('content', article.title);
-            document.head.appendChild(ogTitle);
-
-            const ogDescription = document.createElement('meta');
-            ogDescription.setAttribute('property', 'og:description');
-            ogDescription.setAttribute('content', article.summary);
-            document.head.appendChild(ogDescription);
-
-            const ogType = document.createElement('meta');
-            ogType.setAttribute('property', 'og:type');
-            ogType.setAttribute('content', 'article');
-            document.head.appendChild(ogType);
-
-            const ogUrl = document.createElement('meta');
-            ogUrl.setAttribute('property', 'og:url');
-            // og:url을 새로운 SEO 친화적인 형식으로 업데이트
-            ogUrl.setAttribute('content', `https://product-build-1.pages.dev/articles/${article.slug}`);
-            document.head.appendChild(ogUrl);
-
-            // 아티클 콘텐츠 채우기
-            const articleHtml = `
-                <article>
-                    <header class="article-header">
-                        <h1>${article.title}</h1>
-                        <div class="article-meta">
-                            <span>By ${article.author}</span> | 
-                            <span>${article.date}</span> | 
-                            <span>${article.category}</span>
-                        </div>
-                    </header>
-                    <div class="article-body">${article.content}</div>
-                </article>
-            `;
-            articleContent.innerHTML = articleHtml;
-        } else {
-            articleContent.innerHTML = '<h1>아티클을 찾을 수 없습니다.</h1><p><a href="/articles.html">목록으로 돌아가기</a></p>';
+    if (article) {
+        // Update page title and meta description
+        document.title = `${article.title} - Tech Innovators Conference`;
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) {
+            metaDescription.setAttribute('content', article.summary);
         }
+
+        // Create and structure the article header
+        const header = document.createElement('header');
+        header.className = 'article-header';
+
+        const title = document.createElement('h1');
+        title.textContent = article.title;
+
+        const meta = document.createElement('p');
+        meta.className = 'article-meta';
+        meta.textContent = `${article.author} · ${article.date}`;
+
+        const image = document.createElement('img');
+        image.src = article.thumbnailUrl;
+        image.alt = article.title;
+        image.className = 'article-featured-image';
+        
+        header.appendChild(title);
+        header.appendChild(meta);
+
+        // Create the article body
+        const body = document.createElement('div');
+        body.className = 'article-body';
+        body.innerHTML = article.content; // The content is already HTML
+
+        // Append all parts to the main content element
+        articleContentEl.appendChild(header);
+        articleContentEl.appendChild(image);
+        articleContentEl.appendChild(body);
+
+    } else {
+        // Handle case where article is not found
+        articleContentEl.innerHTML = `
+            <div style="text-align: center;">
+                <h1>아티클을 찾을 수 없습니다.</h1>
+                <p>요청하신 아티클이 존재하지 않거나, 주소가 잘못되었습니다.</p>
+                <a href="/articles.html">아티클 목록으로 돌아가기</a>
+            </div>
+        `;
+    }
+    
+    // Handle theme switching
+    const themeSwitcher = document.getElementById('theme-switcher');
+    if (themeSwitcher) {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light') {
+            document.documentElement.classList.add('light-mode');
+            themeSwitcher.checked = false; // Assuming unchecked is light
+        } else {
+            themeSwitcher.checked = true; // Assuming checked is dark
+        }
+
+        themeSwitcher.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
     }
 });

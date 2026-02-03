@@ -3,29 +3,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (articlesList) {
         articles.forEach(article => {
-            const articleElement = document.createElement('article');
-            articleElement.className = 'article-item';
-
+            // Create the main link wrapper
             const link = document.createElement('a');
-            // SEO-friendly URL
-            link.href = `/articles/${article.slug}`;
+            link.href = `article.html?id=${article.id}`;
+            link.className = 'post-card-link';
+
+            // Create the card container
+            const card = document.createElement('div');
+            card.className = 'post-card-new';
+
+            // Create the image container
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'card-image';
+            const image = document.createElement('img');
+            image.src = article.thumbnailUrl;
+            image.alt = article.title;
+            imageContainer.appendChild(image);
+
+            // Create the content container
+            const content = document.createElement('div');
+            content.className = 'card-content';
+
+            // Create category, title, summary, and footer elements
+            const category = document.createElement('div');
+            category.className = 'card-category';
+            category.textContent = article.category;
 
             const title = document.createElement('h2');
+            title.className = 'card-title';
             title.textContent = article.title;
 
             const summary = document.createElement('p');
+            summary.className = 'card-summary';
             summary.textContent = article.summary;
 
-            const meta = document.createElement('div');
-            meta.className = 'article-meta';
-            meta.textContent = `${article.author} | ${article.date} | ${article.category}`;
+            const footer = document.createElement('div');
+            footer.className = 'card-footer';
+            footer.textContent = `${article.author} | ${article.date}`;
 
-            link.appendChild(title);
-            articleElement.appendChild(link);
-            articleElement.appendChild(summary);
-            articleElement.appendChild(meta);
+            // Append elements to content
+            content.appendChild(category);
+            content.appendChild(title);
+            content.appendChild(summary);
+            content.appendChild(footer);
+
+            // Append image and content to the card
+            card.appendChild(imageContainer);
+            card.appendChild(content);
+
+            // Append the card to the link
+            link.appendChild(card);
             
-            articlesList.appendChild(articleElement);
+            // Append the link to the main list
+            articlesList.appendChild(link);
         });
     }
 });

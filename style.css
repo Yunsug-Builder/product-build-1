@@ -411,3 +411,117 @@ html.light-mode .benefit-card { background: #fff; border-color: #e0e0e0; }
     .filter-btn { padding: 0.5rem 1rem; margin: 0.2rem; }
     .posts-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
+
+/* Article Detail Page Styles */
+.article-content {
+    padding-top: 2rem;
+}
+
+.article-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.article-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 auto 1rem auto;
+    max-width: 800px;
+}
+
+html.light-mode .article-header h1 {
+    color: #212529;
+}
+
+.article-meta {
+    font-size: 0.95rem;
+    color: #adb5bd;
+}
+
+html.light-mode .article-meta {
+    color: #6c757d;
+}
+
+.article-featured-image {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto 3rem auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.article-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+html.light-mode .article-body {
+    color: #343a40;
+}
+
+.article-body h2, .article-body h3 {
+    font-weight: 600;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+.article-body a {
+    color: #5A85B3;
+    text-decoration: none;
+    border-bottom: 1px solid #5A85B3;
+    transition: background-color 0.2s;
+}
+html.light-mode .article-body a {
+    color: #3B597A;
+    border-bottom-color: #3B597A;
+}
+.article-body a:hover {
+    background-color: rgba(90, 133, 179, 0.1);
+}
+html.light-mode .article-body a:hover {
+    background-color: rgba(59, 89, 122, 0.1);
+}
+
+.article-body ul, .article-body ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.article-body li {
+    margin-bottom: 0.75rem;
+}
+
+.article-body blockquote {
+    border-left: 4px solid #3B597A;
+    margin: 2rem 0;
+    padding: 0.5rem 1.5rem;
+    font-style: italic;
+    color: #ced4da;
+}
+
+html.light-mode .article-body blockquote {
+    background-color: #f8f9fa;
+    border-left-color: #5A85B3;
+    color: #495057;
+}
+
+.article-body code {
+    background-color: #2b2b2b;
+    color: #e0e0e0;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 90%;
+}
+html.light-mode .article-body code {
+    background-color: #e9ecef;
+    color: #212529;
+}
