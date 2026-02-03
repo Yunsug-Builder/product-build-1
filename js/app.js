@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const currentPage = window.location.pathname.split('/').pop();
-
-    if (currentPage === 'board.html') {
+    // URL 경로 대신 페이지별 고유 ID를 확인하여 더 안정적으로 실행
+    if (document.getElementById('posts-grid')) {
         initBoardPage();
-    } else if (currentPage === 'view.html') {
+    } else if (document.getElementById('post-content')) {
         initViewPage();
     }
 });
@@ -12,20 +11,15 @@ function initBoardPage() {
     const postsGrid = document.getElementById('posts-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
 
-    console.log('initBoardPage: 페이지 초기화 시작');
-    if (typeof posts !== 'undefined') {
-        console.log(`initBoardPage: 총 ${posts.length}개의 게시물 로드됨`);
-    } else {
+    if (typeof posts === 'undefined') {
         console.error('initBoardPage: "posts" 변수가 정의되지 않았습니다. posts.js 파일이 제대로 로드되었는지 확인하세요.');
+        postsGrid.innerHTML = '<p>게시글 데이터를 불러오는 데 실패했습니다. 관리자에게 문의하세요.</p>';
         return;
     }
 
     function renderPosts(filter = 'all') {
-        console.log(`renderPosts: '${filter}' 카테고리로 렌더링 시작`);
         postsGrid.innerHTML = '';
         const filteredPosts = filter === 'all' ? posts : posts.filter(p => p.category === filter);
-        
-        console.log(`renderPosts: ${filteredPosts.length}개의 게시물 필터링됨`);
 
         if (filteredPosts.length === 0) {
             postsGrid.innerHTML = '<p>이 카테고리에는 게시글이 없습니다.</p>';
@@ -59,13 +53,8 @@ function initBoardPage() {
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             const category = button.dataset.category;
-            console.log(`클릭 이벤트: '${category}' 버튼 클릭됨`);
-            
-            // Update active button
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            
-            // Render filtered posts
             renderPosts(category);
         });
     });
@@ -79,17 +68,20 @@ function initViewPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = parseInt(urlParams.get('id'), 10);
 
+    if (typeof posts === 'undefined') {
+        postContentContainer.innerHTML = '<h1>게시글을 불러올 수 없습니다.</h1>';
+        return;
+    }
+
     const post = posts.find(p => p.id === postId);
 
     if (post) {
-        // Update meta tags for SEO
         document.title = `${post.title} - 테크 트렌드 & 인사이트`;
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription) {
             metaDescription.setAttribute('content', post.summary);
         }
 
-        // Render post content
         postContentContainer.innerHTML = `
             <h1 class="post-full-title">${post.title}</h1>
             <div class="post-full-meta">
